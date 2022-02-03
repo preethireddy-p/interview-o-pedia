@@ -1,5 +1,13 @@
 # A VIDEO CONFERENCING ZOOM CLONE APP FOR EASY ONLINE INTERVIEWS
 
+## Motivation
+The objective of this application is to ease the process of job interviews for both sides in the current virtual means, serving the following features:
+- A in-app one-click option to access the required documents (resume, degree certificates, projects, etc) of the interviewee.
+- The interviewer can quickly note down the pointers on the interviewee.
+- Access to a live online code/text editor for the interviewer to see the interviewee's work.
+- Feedback forms/ questionnaie for the interviewer and interviewee.
+- Chatbox to share any type of content (text, docs, images, video, audio)
+- Only the host of the meeting has the authorization to remove a participant.
 ## Technology
 
 This project uses:
@@ -74,8 +82,6 @@ or
 npx nodemon index.js
 ```
 5. Make sure to include the .env file in your gitIgnore file from being exposed online.
-
-Questions about running the demo? [Open an issue](https://github.com/hieptl/zoom-clone/issues). We're here to help ✌️
 
 ## Useful links
 
