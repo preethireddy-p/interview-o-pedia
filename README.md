@@ -61,7 +61,7 @@ REACT_APP_COMETCHAT_AUTH_KEY=xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx
 
 To run the demo follow these steps:
 
-1. We will use the MySQL database. For this reason, this section describes how to create the database and its table. Before proceeding, you need to make sure that you have installed the MySQL database on your computer already. To create the database and its table, you need to get the zoom.sql and run it.
+1. We will use the MySQL database. For this reason, this section describes how to create the database and its table. Before proceeding, you need to make sure that you have installed the MySQL database on your computer already. To create the database and its table, you need to get the zoom.sql and run it (OR) manually run the SQL script from zoom.sql in your SQL DB viewer.
 2. Create .env file and replace the below information with the information of your database connection.
 ```js
 PORT=xxx - xxx - xxx - xxx - xxx - xxx - xxx - xxx
