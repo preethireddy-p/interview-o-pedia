@@ -481,6 +481,15 @@ class CometChatGroupDetails extends React.Component {
 			case "transferownership":
 				this.setState({ transferOwnership: flag });
 				break;
+			case "livecodeeditor":
+				window.open("https://www.codechef.com/ide", "_blank");
+				break;
+			case "feedbackform":
+				window.open("https://forms.gle/m9a5V7Xh7XCk4mwc6", "_blank");
+				break;
+			case "notes":
+				window.open("https://keep.google.com/u/0/", "_blank");
+					break;
 			default:
 				break;
 		}
@@ -612,6 +621,31 @@ class CometChatGroupDetails extends React.Component {
 			</div>
 		);
 
+		let liveCodeEditorBtn = (
+			<div css={contentItemStyle()} className="content__item">
+				<div css={itemLinkStyle(this.context, 0)} className="item__link" onClick={() => this.clickHandler("livecodeeditor", true)}>
+					{Translator.translate("LIVE_CODE_EDITOR", this.context.language)}
+				</div>
+			</div>
+		);
+
+		let feedbackFormBtn = (
+			<div css={contentItemStyle()} className="content__item">
+				<div css={itemLinkStyle(this.context, 0)} className="item__link" onClick={() => this.clickHandler("feedbackform", true)}>
+					{Translator.translate("FEEDBACK_FORM", this.context.language)}
+				</div>
+			</div>
+		);
+
+		let notesBtn = (
+			<div css={contentItemStyle()} className="content__item">
+				<div css={itemLinkStyle(this.context, 0)} className="item__link" onClick={() => this.clickHandler("notes", true)}>
+					{Translator.translate("NOTES", this.context.language)}
+				</div>
+			</div>
+		);
+		
+
 		let addMembersBtn = null,
 			deleteGroupBtn = null,
 			bannedMembersBtn = null;
@@ -703,6 +737,19 @@ class CometChatGroupDetails extends React.Component {
 			</div>
 		);
 
+		let interviewtools = (
+			<div css={sectionStyle()} className="section section__members">
+				<h6 css={sectionHeaderStyle(this.context)} className="section__header">
+					{Translator.translate("INTERVIEW_TOOLS", this.context.language)}
+				</h6>
+				<div css={sectionContentStyle()} className="section__content">
+					{liveCodeEditorBtn}
+					{feedbackFormBtn}
+					{notesBtn}
+				</div>
+			</div>
+		);
+
 		let options = (
 			<div css={sectionStyle()} className="section section__options">
 				<h6 css={sectionHeaderStyle(this.context)} className="section__header">
@@ -789,6 +836,7 @@ class CometChatGroupDetails extends React.Component {
 				</div>
 				<div css={detailPaneStyle()} className="detailpane__section">
 					{members}
+					{interviewtools}
 					{options}
 					{sharedmediaView}
 				</div>

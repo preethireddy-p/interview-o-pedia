@@ -205,6 +205,7 @@
 	"SAME_LANGUAGE_MESSAGE": "Selected language for translation is similar to the language of original message",
 	"LEAVE": "Leave",
 	"SELECT_MODE":"Select Mode",
+	"SELECT_DOCUMENTS":"Select Documents",
 	"CALLS": "Calls",
 	"CUSTOM_MESSAGE_LOCATION": "📍Location",
 	"OFFLINE": "Offline",
@@ -215,5 +216,9 @@
 	"NO_PHOTOS": "No Photos",
 	"NO_VIDEOS": "No Videos",
 	"NO_DOCUMENTS": "No Documents",
-	"JOIN": "Join"
+	"JOIN": "Join",
+	"LIVE_CODE_EDITOR": "Live Code Editor",
+	"INTERVIEW_TOOLS": "INTERVIEW TOOLS",
+	"FEEDBACK_FORM": "Feedback Form",
+	"NOTES": "Notes"
 }

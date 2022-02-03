@@ -4,6 +4,7 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { CometChat } from "@cometchat-pro/chat";
+import Collapsible from "react-collapsible-paragraph";
 
 import { CometChatAvatar, CometChatUserPresence } from "../../Shared";
 
@@ -35,6 +36,8 @@ import kickIcon from "./resources/delete.svg";
 
 class CometChatViewGroupMemberListItem extends React.Component {
 
+    
+
     static contextType = CometChatContext;
 
     constructor(props, context) {
@@ -50,11 +53,18 @@ class CometChatViewGroupMemberListItem extends React.Component {
 
         this.state = {
             showChangeScope: false,
-            scope: null
+            scope: null,
+            showPopup: false
         }
 
         this.roles = context.roles;
     }
+
+    togglePopup() {  
+        this.setState({  
+             showPopup: !this.state.showPopup  
+        });  
+         }  
 
     toggleChangeScope = (flag) => {
         this.setState({ showChangeScope: flag });
@@ -74,6 +84,7 @@ class CometChatViewGroupMemberListItem extends React.Component {
         const elem = event.currentTarget;
         
         if (elem.classList.contains("name")) {
+            
 
             const scrollWidth = elem.scrollWidth;
             const clientWidth = elem.clientWidth;
@@ -93,6 +104,7 @@ class CometChatViewGroupMemberListItem extends React.Component {
     render() {
 
         let editClassName = "";
+        
     
         let name = this.props.member.name;
         let scope = (<span css={roleStyle()}>{this.roles[this.props.member.scope]}</span>);
@@ -219,6 +231,15 @@ class CometChatViewGroupMemberListItem extends React.Component {
         let userPresence = (
             <CometChatUserPresence status={this.props.member.status} />
         );
+
+        function getLinkedInProfile() {
+            window.open('https://www.linkedin.com/in/sri-preethi-p-b22889191/', '_blank')
+        }
+
+        function getDocumentFolder() {
+            window.open('https://drive.google.com/drive/u/0/folders/1suE7uTuhue2hliSSHfJvRpEtFwm62DBA', '_blank')
+        }
+        
         
         return (
             <div css={modalRowStyle(this.context)} className="content__row">
@@ -226,12 +247,17 @@ class CometChatViewGroupMemberListItem extends React.Component {
                     <div css={avatarStyle(this.context, editClassName)} className="thumbnail"
                     onMouseEnter={event => this.toggleTooltip(event, true)}
                     onMouseLeave={event => this.toggleTooltip(event, false)}>
-                        <CometChatAvatar user={this.props.member} />
+                        {/* <CometChatAvatar user={this.props.member} /> */}
                         {userPresence}
                     </div>
-                    <div css={nameStyle(this.context, editClassName)} className="name"
+                    <div>  
+                    <h4> {name} </h4>
+                    <button onClick={getLinkedInProfile}>LinkedIn</button>
+                    <button onClick={getDocumentFolder}>Documents</button>
+                    </div>  
+                    {/* <div css={nameStyle(this.context, editClassName)} className="name"
                     onMouseEnter={event => this.toggleTooltip(event, true)}
-                    onMouseLeave={event => this.toggleTooltip(event, false)}>{name}</div>
+                    onMouseLeave={event => this.toggleTooltip(event, false)}>{name}</div> */}
                 </div>
                 <div css={scopeColumnStyle(this.context)} className="scope">{changescope}</div>
                 {editAccess}

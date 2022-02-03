@@ -17,10 +17,10 @@ function Header(props) {
     toggleJoin(true);
   };
 
-  const logout = async () => {
+  const logout = () => {
     const isLogout = window.confirm('Do you want to log out ?');
     if (isLogout) {
-      await cometChat.logout();
+      cometChat.logout();
       setUser(null);
       localStorage.removeItem('auth');
       history.push('/login');
@@ -34,7 +34,7 @@ function Header(props) {
         {
           user && (
             <div className="header__right">
-              <img src={user.user_avatar} alt={user.user_email}/>
+              {/* <img src={user.user_avatar} alt={user.user_email}/> */}
               <span>Hello, {user.user_full_name}</span>
             </div>
           )
