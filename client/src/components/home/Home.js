@@ -5,6 +5,7 @@ import Header from '../common/Header';
 import Create from './Create';
 import Join from './Join';
 import Context from '../../context';
+import Details from './Details';
 
 const Home = () => {
   const [meetings, setMeetings] = useState([]);
@@ -13,6 +14,7 @@ const Home = () => {
 
   const [isCreateShown, setIsCreateShown] = useState(false);
   const [isJoinShown, setIsJoinShown] = useState(false);
+  const [isDetailsShown, setIsDetailsShown] = useState(false);
 
   const history = useHistory();
 
@@ -37,6 +39,10 @@ const Home = () => {
     setIsCreateShown(() => isShown);
   };
 
+  const toggleDetails = (isShown) => {
+    setIsDetailsShown(() => isShown);
+  };
+
   const toggleJoin = (isShown) => {
     setIsJoinShown(() => isShown);
   };
@@ -49,7 +55,7 @@ const Home = () => {
 
   return (
     <>
-      <Header toggleCreate={toggleCreate} toggleJoin={toggleJoin} />
+      <Header toggleCreate={toggleCreate} toggleJoin={toggleJoin} toggleDetails={toggleDetails} />
       <div className="main">
         <div className="main__list">
           <h3>Your Created Meetings</h3>
@@ -63,6 +69,7 @@ const Home = () => {
         </div>
         {isCreateShown && <Create toggleCreate={toggleCreate} />}
         {isJoinShown && <Join toggleJoin={toggleJoin} />}
+        {isDetailsShown && <Details toggleDetails={toggleDetails} />}
       </div>
     </>
   );

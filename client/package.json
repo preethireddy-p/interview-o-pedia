@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-syntax-flow": "^7.16.7",
+    "@babel/plugin-transform-react-jsx": "^7.16.7",
     "@cometchat-pro/chat": "3.0.0",
     "@emotion/core": "^10.0.35",
     "@testing-library/jest-dom": "^5.15.0",

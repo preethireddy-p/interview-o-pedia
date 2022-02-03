@@ -67,7 +67,7 @@ class CometChatUserProfile extends React.Component {
 					</div>
 					<div css={detailStyle()} className="userinfo__detail">
 						<div css={thumbnailStyle()} className="detail__thumbnail">
-							{avatar}
+							{/* {avatar} */}
 						</div>
 						<div css={userDetailStyle()} className="detail__user" dir={Translator.getDirection(this.props.lang)}>
 							<div css={userNameStyle()} className="user__name">

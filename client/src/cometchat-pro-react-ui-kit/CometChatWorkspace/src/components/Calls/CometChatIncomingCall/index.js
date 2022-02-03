@@ -296,9 +296,6 @@ class CometChatIncomingCall extends React.PureComponent {
 									{callType}
 								</div>
 							</div>
-							<div css={thumbnailStyle()} className="header__thumbnail">
-								<CometChatAvatar user={this.state.incomingCall.sender} />
-							</div>
 						</div>
 						<div css={headerButtonStyle()} className="callalert__buttons" ref={this.callButtonRef}>
 							<button type="button" css={ButtonStyle(this.props, 0)} className="button button__decline" onClick={() => this.rejectCall(this.state.incomingCall, CometChat.CALL_STATUS.REJECTED)}>

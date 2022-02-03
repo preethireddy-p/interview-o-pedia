@@ -46,42 +46,28 @@ function SignUp(props) {
     return true;
   };
 
-  const createUser = async ({ id, email, password, fullname, avatar }) => {
+  const createUser = async ({ id, email, password, fullname }) => {
     const url = 'http://localhost:8080/users/create';
-    return await axios.post(url, { id, email, password, fullname, avatar });
+    return await axios.post(url, { id, email, password, fullname });
   };
 
-  const createCometChatAccount = async ({ id, fullname, avatar }) => {
+  const createCometChatAccount = async ({ id, fullname }) => {
     const authKey = `${process.env.REACT_APP_COMETCHAT_AUTH_KEY}`;
     const user = new cometChat.User(id);
     user.setName(fullname);
-    user.setAvatar(avatar);
     return await cometChat.createUser(user, authKey);
   };
-
-  const generateAvatar = () => {
-    const avatars= [
-      'https://data-us.cometchat.io/assets/images/avatars/captainamerica.png',
-      'https://data-us.cometchat.io/assets/images/avatars/cyclops.png',
-      'https://data-us.cometchat.io/assets/images/avatars/ironman.png',
-      'https://data-us.cometchat.io/assets/images/avatars/spiderman.png',
-      'https://data-us.cometchat.io/assets/images/avatars/wolverine.png'
-    ];
-    const avatarPosition = Math.floor(Math.random() * avatars.length);
-    return avatars[avatarPosition];
-  }
 
   const signup = async () => {
     const { fullname, email, password, confirmPassword } = getInputs();
     if (isSignupValid({ fullname, email, password, confirmPassword })) {
       setIsLoading(true);
-      const avatar = generateAvatar();
       const id = uuidv4();
-      const response = await createUser({ id, email, password, fullname, avatar });
+      const response = await createUser({ id, email, password, fullname });
       if (response && response.data.message) {
         alert(response.data.message);
       } else {
-        const createdAccount = await createCometChatAccount({ id, fullname, avatar });
+        const createdAccount = await createCometChatAccount({ id, fullname });
         if (createdAccount) {
           alert(`${email} was created successfully! Please sign in with your created account`);
         }

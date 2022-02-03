@@ -3,7 +3,7 @@ import Context from '../../context';
 import { useHistory } from 'react-router-dom';
 
 function Header(props) {
-  const { toggleCreate, toggleJoin } = props;
+  const { toggleCreate, toggleJoin, toggleDetails } = props;
 
   const { user, setUser, cometChat } = useContext(Context);
 
@@ -15,6 +15,10 @@ function Header(props) {
 
   const showJoin = () => {
     toggleJoin(true);
+  };
+
+  const showDetails = () => {
+    toggleDetails(true);
   };
 
   const logout = () => {
@@ -41,6 +45,8 @@ function Header(props) {
         }
         <span className="header__option" onClick={showCreate}>Create Meeting</span>
         <span className="header__option" onClick={showJoin}>Join Meeting</span>
+        <span className="header__option" onClick={showDetails}>Details</span>
+
       </div>
       <span className="header__logout" onClick={logout}><span>Logout</span></span>
     </div>

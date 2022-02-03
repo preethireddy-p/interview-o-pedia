@@ -143,7 +143,7 @@ class CometChatReceiverDirectCallBubble extends React.Component {
 		return (
 			<div css={messageContainerStyle()} className="receiver__message__container message__directcall" onMouseEnter={this.handleMouseHover} onMouseLeave={this.handleMouseHover}>
 				<div css={messageWrapperStyle()} className="message__wrapper">
-					{avatar}
+					{/* {avatar} */}
 					<div css={messageDetailStyle()} className="message__details">
 						{name}
 						{toolTipView}

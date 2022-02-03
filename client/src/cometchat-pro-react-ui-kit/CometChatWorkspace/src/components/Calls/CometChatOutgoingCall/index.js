@@ -192,7 +192,7 @@ class CometChatOutgoingCall extends React.PureComponent {
 								<h6 css={headerNameStyle()} className="header__name">{this.state.callInProgress.receiver.name}</h6>
 							</div>
 							<div css={thumbnailWrapperStyle()} className="callscreen__thumbnail__wrapper">
-								<div css={thumbnailStyle()} className="callscreen__thumbnail">{avatar}</div>
+								{/* <div css={thumbnailStyle()} className="callscreen__thumbnail">{avatar}</div> */}
 							</div>
 							{errorScreen}
 							<div css={headerIconStyle()} className="callscreen__icons">
