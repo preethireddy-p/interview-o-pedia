@@ -1,10 +1,8 @@
-# HOW TO BUILD VIDEO CONFERENCING ZOOM CLONE APP
-
-Read the full tutorial here: [**>> HOW TO BUILD VIDEO CONFERENCING ZOOM CLONE APP**](https://www.cometchat.com/tutorials/#)
+# A VIDEO CONFERENCING ZOOM CLONE APP FOR EASY ONLINE INTERVIEWS
 
 ## Technology
 
-This demo uses:
+This project uses:
 
 - CometChat Pro 3.0.0
 - CometChat UI Kit
@@ -84,6 +82,5 @@ Questions about running the demo? [Open an issue](https://github.com/hieptl/zoom
 - 🏠 [CometChat Homepage](https://app.cometchat.com/signup)
 - 🚀 [Create your free account](https://app.cometchat.com/apps)
 - 📚 [Documentation](https://www.cometchat.com/docs/home/welcome)
-- 👾 [GitHub](https://www.github.com/cometchat-pro)
-- 🔥 [Node.js](https://nodejs.org/en/)
-- 🔷 [React.js](https://reactjs.org/)
+
+For more details, go through [**>> HOW TO BUILD VIDEO CONFERENCING ZOOM CLONE APP**](https://www.cometchat.com/tutorials/#)
