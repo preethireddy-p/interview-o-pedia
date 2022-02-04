@@ -1,5 +1,5 @@
 # Interview-o-pedia
-### A VIDEO CONFERENCING ZOOM CLONE APP FOR EASY ONLINE INTERVIEWS
+### A Video conferencing zoom clone app for easy interview processes
 
 ## Motivation
 The objective of this application is to ease the process of job interviews for both sides in the current virtual means, serving the following features:
