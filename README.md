@@ -1,10 +1,18 @@
-# HOW TO BUILD VIDEO CONFERENCING ZOOM CLONE APP
+# Interview-o-pedia
+### A Video conferencing zoom clone app for easy interview processes
 
-Read the full tutorial here: [**>> HOW TO BUILD VIDEO CONFERENCING ZOOM CLONE APP**](https://www.cometchat.com/tutorials/#)
-
+## Motivation
+The objective of this application is to ease the process of job interviews for both sides in the current virtual means, serving the following features:
+- Members can create their profiles by uploading required details and documents.
+- A in-app one-click option to access the required documents (resume, degree certificates, projects, etc) of the interviewee.
+- The interviewer can quickly note down the pointers on the interviewee.
+- Access to a live online code/text editor for the interviewer to see the interviewee's work.
+- Feedback forms/ questionnaie for the interviewer and interviewee.
+- Chatbox to share any type of content (text, docs, images, video, audio)
+- Only the host of the meeting has the authorization to remove a participant.
 ## Technology
 
-This demo uses:
+This project uses:
 
 - CometChat Pro 3.0.0
 - CometChat UI Kit
@@ -43,8 +51,7 @@ REACT_APP_COMETCHAT_REGION=xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx
 REACT_APP_COMETCHAT_AUTH_KEY=xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx
 ```
 
-10. Make sure to exclude **.env** in your gitIgnore file from being exposed online.
-11. Run the following command to install the app.
+10. Run the following command to install the app.
 
 ```sh
     npm install
@@ -55,7 +62,7 @@ REACT_APP_COMETCHAT_AUTH_KEY=xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx
 
 To run the demo follow these steps:
 
-1. We will use the MySQL database. For this reason, this section describes how to create the database and its table. Before proceeding, you need to make sure that you have installed the MySQL database on your computer already. To create the database and its table, you need to get the zoom.sql and run it.
+1. We will use the MySQL database. For this reason, this section describes how to create the database and its table. Before proceeding, you need to make sure that you have installed the MySQL database on your computer already. To create the database and its table, you need to get the zoom.sql and run it (OR) manually run the SQL script from zoom.sql in your SQL DB viewer.
 2. Create .env file and replace the below information with the information of your database connection.
 ```js
 PORT=xxx - xxx - xxx - xxx - xxx - xxx - xxx - xxx
@@ -75,15 +82,3 @@ node index.js
 or 
 npx nodemon index.js
 ```
-5. Make sure to include the .env file in your gitIgnore file from being exposed online.
-
-Questions about running the demo? [Open an issue](https://github.com/hieptl/zoom-clone/issues). We're here to help ✌️
-
-## Useful links
-
-- 🏠 [CometChat Homepage](https://app.cometchat.com/signup)
-- 🚀 [Create your free account](https://app.cometchat.com/apps)
-- 📚 [Documentation](https://www.cometchat.com/docs/home/welcome)
-- 👾 [GitHub](https://www.github.com/cometchat-pro)
-- 🔥 [Node.js](https://nodejs.org/en/)
-- 🔷 [React.js](https://reactjs.org/)

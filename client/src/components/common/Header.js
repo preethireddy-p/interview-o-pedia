@@ -3,7 +3,7 @@ import Context from '../../context';
 import { useHistory } from 'react-router-dom';
 
 function Header(props) {
-  const { toggleCreate, toggleJoin } = props;
+  const { toggleCreate, toggleJoin, toggleDetails } = props;
 
   const { user, setUser, cometChat } = useContext(Context);
 
@@ -17,10 +17,14 @@ function Header(props) {
     toggleJoin(true);
   };
 
-  const logout = async () => {
+  const showDetails = () => {
+    toggleDetails(true);
+  };
+
+  const logout = () => {
     const isLogout = window.confirm('Do you want to log out ?');
     if (isLogout) {
-      await cometChat.logout();
+      cometChat.logout();
       setUser(null);
       localStorage.removeItem('auth');
       history.push('/login');
@@ -34,13 +38,14 @@ function Header(props) {
         {
           user && (
             <div className="header__right">
-              <img src={user.user_avatar} alt={user.user_email}/>
               <span>Hello, {user.user_full_name}</span>
             </div>
           )
         }
         <span className="header__option" onClick={showCreate}>Create Meeting</span>
         <span className="header__option" onClick={showJoin}>Join Meeting</span>
+        <span className="header__option" onClick={showDetails}>Details</span>
+
       </div>
       <span className="header__logout" onClick={logout}><span>Logout</span></span>
     </div>

@@ -4,8 +4,8 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { CometChat } from "@cometchat-pro/chat";
-
-import { CometChatAvatar, CometChatUserPresence } from "../../Shared";
+import axios from "axios";
+import { CometChatUserPresence } from "../../Shared";
 
 import { CometChatContext } from "../../../util/CometChatContext";
 import * as enums from "../../../util/enums.js";
@@ -35,6 +35,8 @@ import kickIcon from "./resources/delete.svg";
 
 class CometChatViewGroupMemberListItem extends React.Component {
 
+    
+
     static contextType = CometChatContext;
 
     constructor(props, context) {
@@ -50,11 +52,18 @@ class CometChatViewGroupMemberListItem extends React.Component {
 
         this.state = {
             showChangeScope: false,
-            scope: null
+            scope: null,
+            showPopup: false
         }
 
         this.roles = context.roles;
     }
+
+    togglePopup() {  
+        this.setState({  
+             showPopup: !this.state.showPopup  
+        });  
+         }  
 
     toggleChangeScope = (flag) => {
         this.setState({ showChangeScope: flag });
@@ -74,6 +83,7 @@ class CometChatViewGroupMemberListItem extends React.Component {
         const elem = event.currentTarget;
         
         if (elem.classList.contains("name")) {
+            
 
             const scrollWidth = elem.scrollWidth;
             const clientWidth = elem.clientWidth;
@@ -93,6 +103,7 @@ class CometChatViewGroupMemberListItem extends React.Component {
     render() {
 
         let editClassName = "";
+        
     
         let name = this.props.member.name;
         let scope = (<span css={roleStyle()}>{this.roles[this.props.member.scope]}</span>);
@@ -219,19 +230,47 @@ class CometChatViewGroupMemberListItem extends React.Component {
         let userPresence = (
             <CometChatUserPresence status={this.props.member.status} />
         );
-        
+
+        async function getLinkedInProfile() {
+            let lp = ''
+            var url = "http://localhost:8080/users/details/get/" + name  
+            console.log(url)
+            console.log(name)
+            await axios.get(url).then(response =>{
+               lp = response.data[0]['linkedin_profile']              
+            })
+            window.open(lp, '_blank')
+        }
+
+        async function getDocumentFolder() {
+            console.log("-----hit------")
+
+            let resume = ''
+            var url = "http://localhost:8080/users/details/get/" + name
+            console.log(url)
+            console.log(name)
+            await axios.get(url).then(response =>{
+               resume = response.data[0]['user_resume']              
+            })
+            window.open(resume, '_blank')
+        }
+
+
         return (
             <div css={modalRowStyle(this.context)} className="content__row">
                 <div css={nameColumnStyle(this.context, editClassName)} className="userinfo">
                     <div css={avatarStyle(this.context, editClassName)} className="thumbnail"
                     onMouseEnter={event => this.toggleTooltip(event, true)}
                     onMouseLeave={event => this.toggleTooltip(event, false)}>
-                        <CometChatAvatar user={this.props.member} />
                         {userPresence}
                     </div>
-                    <div css={nameStyle(this.context, editClassName)} className="name"
-                    onMouseEnter={event => this.toggleTooltip(event, true)}
-                    onMouseLeave={event => this.toggleTooltip(event, false)}>{name}</div>
+                    <div>  
+                    <h4> {name} </h4>
+                    <button className="details_buttons" onClick={getLinkedInProfile}>LinkedIn</button>
+                    <button className="details_buttons" onClick={getDocumentFolder}>Documents</button>
+                    </div> 
+                    
+                    
                 </div>
                 <div css={scopeColumnStyle(this.context)} className="scope">{changescope}</div>
                 {editAccess}

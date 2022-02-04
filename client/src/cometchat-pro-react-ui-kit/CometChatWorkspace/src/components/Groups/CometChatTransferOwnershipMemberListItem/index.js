@@ -56,7 +56,7 @@ class CometChatTransferOwnershipMemberListItem extends React.Component {
 			<div css={modalRowStyle(this.props, this.context)}>
 				<div css={modalColumnStyle(this.context)} className="memberinfo" onMouseEnter={event => this.toggleTooltip(event, true)} onMouseLeave={event => this.toggleTooltip(event, false)}>
 					<div css={avatarStyle()} className="avatar">
-						<CometChatAvatar user={this.props.member} />
+						{/* <CometChatAvatar user={this.props.member} /> */}
 						<CometChatUserPresence status={this.props.member.status} />
 					</div>
 					<div css={nameStyle()} className="name">

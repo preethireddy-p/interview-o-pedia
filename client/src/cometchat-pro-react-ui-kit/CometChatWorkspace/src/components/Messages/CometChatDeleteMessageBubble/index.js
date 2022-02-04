@@ -78,7 +78,7 @@ const CometChatDeleteMessageBubble = (props) => {
 
 			message = (
 				<React.Fragment>
-					{avatar}
+					{/* {avatar} */}
 					<div css={messageDetailStyle(props, loggedInUser)} className="message__details">
 						{name}
 						<div css={messageTxtWrapperStyle(props, context, loggedInUser)} className="message__txt__wrapper">

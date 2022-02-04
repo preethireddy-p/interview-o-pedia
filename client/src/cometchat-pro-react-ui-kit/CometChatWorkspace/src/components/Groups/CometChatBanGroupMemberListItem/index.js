@@ -70,7 +70,7 @@ const CometChatBanGroupMemberListItem = (props) => {
             onMouseEnter={event => toggleTooltip(event, true)}
             onMouseLeave={event => toggleTooltip(event, false)}>
                 <div css={avatarStyle()} className="avatar">
-                    <CometChatAvatar user={props.member} />
+                    {/* <CometChatAvatar user={props.member} /> */}
                     <CometChatUserPresence
                     status={props.member.status}
                     borderColor={props.theme.borderColor.primary} />

@@ -99,7 +99,7 @@ class CometChatReceiverVideoMessageBubble extends React.Component {
 		return (
 			<div css={messageContainerStyle()} className="receiver__message__container message__video" onMouseEnter={this.handleMouseHover} onMouseLeave={this.handleMouseHover}>
 				<div css={messageWrapperStyle()} className="message__wrapper">
-					{avatar}
+					{/* {avatar} */}
 					<div css={messageDetailStyle(name)} className="message__details">
 						{name}
 						{toolTipView}

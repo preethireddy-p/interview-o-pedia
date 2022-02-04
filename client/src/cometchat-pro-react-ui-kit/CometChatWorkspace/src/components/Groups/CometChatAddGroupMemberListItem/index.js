@@ -63,7 +63,7 @@ const CometChatAddGroupMemberListItem = (props) => {
 		<div css={modalRowStyle(theme)}>
 			<div css={modalColumnStyle()} className="userinfo" onMouseEnter={event => toggleTooltip(event, true)} onMouseLeave={event => toggleTooltip(event, false)}>
 				<div css={avatarStyle()} className="avatar">
-					<CometChatAvatar user={props.user} />
+					{/* <CometChatAvatar user={props.user} /> */}
 					<CometChatUserPresence status={props.user.status} />
 				</div>
 				<div css={nameStyle()} className="name">

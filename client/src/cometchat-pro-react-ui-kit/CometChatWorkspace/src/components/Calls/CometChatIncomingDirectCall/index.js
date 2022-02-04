@@ -245,7 +245,6 @@ class CometChatIncomingDirectCall extends React.PureComponent {
 									{callType}
 								</div>
 							</div>
-							{avatar}
 						</div>
 						<div css={headerButtonStyle()} className="callalert__buttons" ref={this.callButtonRef}>
 							<button type="button" css={ButtonStyle(this.props, 0)} className="button button__ignore" onClick={this.ignoreCall}>
