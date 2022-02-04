@@ -4,9 +4,8 @@ import React from "react";
 import { jsx } from "@emotion/core";
 import PropTypes from "prop-types";
 import { CometChat } from "@cometchat-pro/chat";
-import Collapsible from "react-collapsible-paragraph";
-
-import { CometChatAvatar, CometChatUserPresence } from "../../Shared";
+import axios from "axios";
+import { CometChatUserPresence } from "../../Shared";
 
 import { CometChatContext } from "../../../util/CometChatContext";
 import * as enums from "../../../util/enums.js";
@@ -232,32 +231,46 @@ class CometChatViewGroupMemberListItem extends React.Component {
             <CometChatUserPresence status={this.props.member.status} />
         );
 
-        function getLinkedInProfile() {
-            window.open('https://www.linkedin.com/in/sri-preethi-p-b22889191/', '_blank')
+        async function getLinkedInProfile() {
+            let lp = ''
+            var url = "http://localhost:8080/users/details/get/" + name  
+            console.log(url)
+            console.log(name)
+            await axios.get(url).then(response =>{
+               lp = response.data[0]['linkedin_profile']              
+            })
+            window.open(lp, '_blank')
         }
 
-        function getDocumentFolder() {
-            window.open('https://drive.google.com/drive/u/0/folders/1suE7uTuhue2hliSSHfJvRpEtFwm62DBA', '_blank')
+        async function getDocumentFolder() {
+            console.log("-----hit------")
+
+            let resume = ''
+            var url = "http://localhost:8080/users/details/get/" + name
+            console.log(url)
+            console.log(name)
+            await axios.get(url).then(response =>{
+               resume = response.data[0]['user_resume']              
+            })
+            window.open(resume, '_blank')
         }
-        
-        
+
+
         return (
             <div css={modalRowStyle(this.context)} className="content__row">
                 <div css={nameColumnStyle(this.context, editClassName)} className="userinfo">
                     <div css={avatarStyle(this.context, editClassName)} className="thumbnail"
                     onMouseEnter={event => this.toggleTooltip(event, true)}
                     onMouseLeave={event => this.toggleTooltip(event, false)}>
-                        {/* <CometChatAvatar user={this.props.member} /> */}
                         {userPresence}
                     </div>
                     <div>  
                     <h4> {name} </h4>
-                    <button onClick={getLinkedInProfile}>LinkedIn</button>
-                    <button onClick={getDocumentFolder}>Documents</button>
-                    </div>  
-                    {/* <div css={nameStyle(this.context, editClassName)} className="name"
-                    onMouseEnter={event => this.toggleTooltip(event, true)}
-                    onMouseLeave={event => this.toggleTooltip(event, false)}>{name}</div> */}
+                    <button className="details_buttons" onClick={getLinkedInProfile}>LinkedIn</button>
+                    <button className="details_buttons" onClick={getDocumentFolder}>Documents</button>
+                    </div> 
+                    
+                    
                 </div>
                 <div css={scopeColumnStyle(this.context)} className="scope">{changescope}</div>
                 {editAccess}

@@ -2,6 +2,7 @@
 
 ## Motivation
 The objective of this application is to ease the process of job interviews for both sides in the current virtual means, serving the following features:
+- Members can create their profiles by uploading required details and documents.
 - A in-app one-click option to access the required documents (resume, degree certificates, projects, etc) of the interviewee.
 - The interviewer can quickly note down the pointers on the interviewee.
 - Access to a live online code/text editor for the interviewer to see the interviewee's work.
@@ -49,8 +50,7 @@ REACT_APP_COMETCHAT_REGION=xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx
 REACT_APP_COMETCHAT_AUTH_KEY=xxx-xxx-xxx-xxx-xxx-xxx-xxx-xxx
 ```
 
-10. Make sure to exclude **.env** in your gitIgnore file from being exposed online.
-11. Run the following command to install the app.
+10. Run the following command to install the app.
 
 ```sh
     npm install
@@ -81,12 +81,3 @@ node index.js
 or 
 npx nodemon index.js
 ```
-5. Make sure to include the .env file in your gitIgnore file from being exposed online.
-
-## Useful links
-
-- 🏠 [CometChat Homepage](https://app.cometchat.com/signup)
-- 🚀 [Create your free account](https://app.cometchat.com/apps)
-- 📚 [Documentation](https://www.cometchat.com/docs/home/welcome)
-
-For more details, go through [**>> HOW TO BUILD VIDEO CONFERENCING ZOOM CLONE APP**](https://www.cometchat.com/tutorials/#)

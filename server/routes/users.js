@@ -26,7 +26,7 @@ module.exports = function ({ app, dbConn }) {
   app.post("/users/details/add", (req, res, next) => {
     const {email, type, resume, linkedin_profile, yoe, preferred_loc, job_role} = req.body;
     
-    if (email && type && resume && job_role) {
+    if (email && type) {
       const findAccountByEmail = "SELECT * FROM user_account WHERE user_email = ?";
       dbConn.query(findAccountByEmail, [email], function (error, account) {
         if (!account || account.length == 0) {
